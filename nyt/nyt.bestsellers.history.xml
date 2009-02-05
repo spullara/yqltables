@@ -2,26 +2,24 @@
 <table xmlns="http://query.yahooapis.com/v1/schema/table.xsd">
   <meta>
     <author>Sam Pullara</author>
-    <documentationURL>http://developer.nytimes.com/docs/article_search_api/</documentationURL>
-    <sampleQuery>select * from {table} where query='yahoo' and apikey='...' and begin_date='19990112' and end_date='19993112'</sampleQuery>
+    <documentationURL>http://developer.nytimes.com/docs/best_sellers_api</documentationURL>
   </meta>
   <bindings>
     <select produces="XML" itemPath="result_set.results.book">
       <urls>
-        <url>http://api.nytimes.com/svc/books/v2/lists/best-sellers/history.{responseformat}?api-key={apikey}&amp;sort-order={sortorder}&amp;sort-by={sortby}</url>
+        <url>http://api.nytimes.com/svc/books/v2/lists/best-sellers/history.{responseformat}?api-key={apikey}</url>
       </urls>
       <paging model="offset">
         <start default="0" id="offset"/>
-        <pagesize max="20" id="size"/>
+        <pagesize max="20" id=""/>
         <total default="10"/>
       </paging>
       <inputs>
         <key id="apikey" type="xs:string" paramType="path" required="true"/>
         <key id="responseformat" type="xs:string" paramType="path" const="true" default="xml"/>
-        <key id="list" type="xs:string" paramType="query" required="true"/>
-        <key id="sortorder" type="xs:string" paramType="path" default="ASC"/>
-        <key id="sortby" type="xs:string" paramType="path" default="title"/>
-        <key id="age-group" type="xs:string" paramType="query"/>
+        <key id="sort_order" type="xs:string" paramType="query"/>
+        <key id="sort_by" type="xs:string" paramType="query"/>
+        <key id="age_group" type="xs:string" paramType="query"/>
         <key id="author" type="xs:string" paramType="query"/>
         <key id="contributor" type="xs:string" paramType="query"/>
         <key id="isbn" type="xs:string" paramType="query"/>
