@@ -1,0 +1,1 @@
+The Yahoo! Query Language is easy to extend by defining tables on top of external web services.  This project will aggregate table definitions and make them available.
